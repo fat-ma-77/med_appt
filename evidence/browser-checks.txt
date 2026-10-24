@@ -1,0 +1,16 @@
+Browser verification of local production build, 24 October 2026
+
+PASS Desktop landing page and navigation at 1280 x 900.
+PASS Registration through Sign_Up form; success confirmation displayed.
+PASS Login through Login form; authenticated appointments page displayed.
+PASS Search for Somali returns only Dr. Sara Hassan.
+PASS Scheduled booking form includes Name, Phone Number, Date and Time (UTC).
+PASS Instant consultation form includes exactly Name and Phone Number.
+PASS Scheduled booking succeeded; application-wide appointment banner displayed.
+PASS Review submission disables rating, comment and submit button.
+PASS Profile Name edit saved and displayed in profile card.
+PASS Appointment cancellation confirmation persists cancelled status.
+PASS Mobile home and sign-up at 375 x 812 have no horizontal overflow.
+PASS Mobile navigation opens and exposes account navigation/logout.
+
+Captures are actual browser content screenshots, without native browser address bars.

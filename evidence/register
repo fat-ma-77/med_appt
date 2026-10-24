@@ -1,0 +1,6 @@
+LOCAL DEMO API - actual cURL execution
+
+curl -X POST "http://127.0.0.1:5188/api/auth/register" -H "Content-Type: application/json" --data '{"role":"Patient","name":"Amina Demo","email":"assignment.1792868112674@example.com","phone":"+252610000000","password":"Fictional-Demo-2026!"}'
+
+HTTP 201
+{"message":"Account created. You can now log in.","user":{"id":"d1fc9d00-7ebf-4ad8-84a1-12b0293e6552","name":"Amina Demo","email":"assignment.1792868112674@example.com","phone":"+252610000000","role":"Patient"}}
