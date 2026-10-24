@@ -1,0 +1,9 @@
+{
+  "url": "https://stayhealthy-fatma-project.faatum7.chatgpt.site",
+  "access": "public",
+  "status": "succeeded",
+  "deployment_id": "appgdep_6adda69e799881918c45f139445a77d9",
+  "version_id": "appgprj_6adcf926ab5c8191bbe30b81ba290ac8~appgver_98cc445199fc819189346f4b90a34c55",
+  "tested_source_commit": "9b5d63613bdc56468cbb8680bf63def139710c83",
+  "api_checks_passed": 21
+}

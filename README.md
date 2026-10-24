@@ -7,7 +7,7 @@ Educational demonstration only. No real doctors, consultations, prescriptions or
 ## Project links
 
 - Public source: https://github.com/fat-ma-77/stayhealthy-final-project
-- Hosted preview: https://stayhealthy-fatma-project.faatum7.chatgpt.site (owner-private; deployment status recorded separately in evidence).
+- Hosted preview: https://stayhealthy-fatma-project.faatum7.chatgpt.site (public; deployment and API verification recorded in evidence).
 
 ## Technology
 
@@ -102,7 +102,7 @@ node node_modules/typescript/bin/tsc --noEmit --incremental false
 The API script executes real cURL requests against the local app, uses invented example.com identities, and saves command output. It currently invokes curl.exe on Windows; replace that name with curl on macOS/Linux.
 
 - evidence/build.txt: production build output.
-- evidence/register.txt and evidence/login.txt: actual local cURL command/output.
+- evidence/register.txt and evidence/login.txt: actual cURL command/output from the public deployed demo API.
 - evidence/api-tests.txt: API verification results.
 - screenshots/: genuine browser captures of the implementation.
 - design/: editable SVG frames and Figma import instructions.

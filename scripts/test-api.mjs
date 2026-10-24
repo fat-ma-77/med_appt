@@ -20,14 +20,14 @@ function check(name,condition){assert.ok(condition,name);results.push('PASS '+na
 mkdirSync('evidence',{recursive:true});
 const payload={role:'Patient',name:'Amina Demo',email,phone:'+252610000000',password};
 const register=call('POST','/api/auth/register',payload,false);
-writeFileSync('evidence/register.txt',`LOCAL DEMO API - actual cURL execution\n\ncurl -X POST "${base}/api/auth/register" -H "Content-Type: application/json" --data '${JSON.stringify(payload)}'\n\nHTTP ${register.status}\n${register.text}\n`);
+writeFileSync('evidence/register.txt',`REAL DEMO API - actual cURL execution\n\ncurl -X POST "${base}/api/auth/register" -H "Content-Type: application/json" --data '${JSON.stringify(payload)}'\n\nHTTP ${register.status}\n${register.text}\n`);
 check('registration returns 201',register.status===201);
 check('registration never returns password hash or salt',!('passwordHash' in register.data.user)&&!('salt' in register.data.user));
 check('duplicate email is rejected',call('POST','/api/auth/register',payload,false).status===409);
 check('invalid registration is rejected',call('POST','/api/auth/register',{...payload,email:'bad',phone:'x'},false).status===400);
 check('wrong password is rejected',call('POST','/api/auth/login',{email,password:'wrong'},false).status===401);
 const login=call('POST','/api/auth/login',{email,password},false);cookie=login.setCookie;
-writeFileSync('evidence/login.txt',`LOCAL DEMO API - actual cURL execution\n\ncurl -X POST "${base}/api/auth/login" -H "Content-Type: application/json" --data '${JSON.stringify({email,password})}'\n\nHTTP ${login.status}\n${login.text}\n\nThe HttpOnly session cookie was received and used for further tests; its token is omitted from this evidence.\n`);
+writeFileSync('evidence/login.txt',`REAL DEMO API - actual cURL execution\n\ncurl -X POST "${base}/api/auth/login" -H "Content-Type: application/json" --data '${JSON.stringify({email,password})}'\n\nHTTP ${login.status}\n${login.text}\n\nThe HttpOnly session cookie was received and used for further tests; its token is omitted from this evidence.\n`);
 check('login returns 200 and an HttpOnly session cookie',login.status===200&&!!cookie&&/HttpOnly/i.test(login.head));
 check('anonymous appointment access is rejected',call('GET','/api/appointments',undefined,false).status===401);
 check('authenticated profile contains correct identity',call('GET','/api/profile').data.user.email===email);

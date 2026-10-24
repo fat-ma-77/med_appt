@@ -1,8 +1,8 @@
-LOCAL DEMO API - actual cURL execution
+DEPLOYED DEMO API - actual cURL execution
 
-curl -X POST "http://127.0.0.1:5188/api/auth/login" -H "Content-Type: application/json" --data '{"email":"assignment.1792868112674@example.com","password":"Fictional-Demo-2026!"}'
+curl -X POST "https://stayhealthy-fatma-project.faatum7.chatgpt.site/api/auth/login" -H "Content-Type: application/json" --data '{"email":"assignment.1792869281137@example.com","password":"Fictional-Demo-2026!"}'
 
 HTTP 200
-{"message":"Logged in successfully.","user":{"id":"d1fc9d00-7ebf-4ad8-84a1-12b0293e6552","name":"Amina Demo","email":"assignment.1792868112674@example.com","phone":"+252610000000","role":"Patient"}}
+{"message":"Logged in successfully.","user":{"id":"29da393a-e0bb-458f-ac19-e0a978997d07","name":"Amina Demo","email":"assignment.1792869281137@example.com","phone":"+252610000000","role":"Patient"}}
 
 The HttpOnly session cookie was received and used for further tests; its token is omitted from this evidence.

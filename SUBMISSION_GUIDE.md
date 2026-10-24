@@ -41,8 +41,8 @@ Use the task name as the title. Describe what is visible in the caption, for exa
 ## Finish before submitting
 
 - Import SVG frames into Figma and capture there if the design portion requires Figma evidence.
-- Ensure the deployed site is accessible to graders; owner-private Sites require a sharing change.
-- Publish source to GitHub and verify all public file URLs.
+- Website is deployed and public: https://stayhealthy-fatma-project.faatum7.chatgpt.site.
+- Source is published to GitHub; all 12 required file URLs returned HTTP 200 without authentication.
 - Capture launch.png with the real deployment URL in the browser address bar.
 - Put every required PNG in screenshots/, then capture the folder for Task 21.
 - Review and submit the assignment yourself.

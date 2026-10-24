@@ -4,7 +4,9 @@ Project title: StayHealthy: Accessible Healthcare Booking with React
 
 Repository: https://github.com/fat-ma-77/stayhealthy-final-project
 
-For the URL questions, copy the matching link below after the repository push is verified.
+All 12 file links below were verified without authentication.
+
+Public deployed website: https://stayhealthy-fatma-project.faatum7.chatgpt.site
 
 ## Task 4
 
@@ -56,7 +58,7 @@ https://github.com/fat-ma-77/stayhealthy-final-project/blob/main/components/Doct
 
 ## Task 13
 
-Copy the following actual output. Registration/login use the included local demo API.
+Copy the following actual output. Registration/login use the included publicly deployed demo API.
 
 ```text
 
@@ -128,29 +130,29 @@ computing gzip size...
 
 ## Task 16
 
-Copy the following actual output. Registration/login use the included local demo API.
+Copy the following actual output. Registration/login use the included publicly deployed demo API.
 
 ```text
-LOCAL DEMO API - actual cURL execution
+DEPLOYED DEMO API - actual cURL execution
 
-curl -X POST "http://127.0.0.1:5188/api/auth/register" -H "Content-Type: application/json" --data '{"role":"Patient","name":"Amina Demo","email":"assignment.1792868112674@example.com","phone":"+252610000000","password":"Fictional-Demo-2026!"}'
+curl -X POST "https://stayhealthy-fatma-project.faatum7.chatgpt.site/api/auth/register" -H "Content-Type: application/json" --data '{"role":"Patient","name":"Amina Demo","email":"assignment.1792869281137@example.com","phone":"+252610000000","password":"Fictional-Demo-2026!"}'
 
 HTTP 201
-{"message":"Account created. You can now log in.","user":{"id":"d1fc9d00-7ebf-4ad8-84a1-12b0293e6552","name":"Amina Demo","email":"assignment.1792868112674@example.com","phone":"+252610000000","role":"Patient"}}
+{"message":"Account created. You can now log in.","user":{"id":"29da393a-e0bb-458f-ac19-e0a978997d07","name":"Amina Demo","email":"assignment.1792869281137@example.com","phone":"+252610000000","role":"Patient"}}
 
 ```
 
 ## Task 17
 
-Copy the following actual output. Registration/login use the included local demo API.
+Copy the following actual output. Registration/login use the included publicly deployed demo API.
 
 ```text
-LOCAL DEMO API - actual cURL execution
+DEPLOYED DEMO API - actual cURL execution
 
-curl -X POST "http://127.0.0.1:5188/api/auth/login" -H "Content-Type: application/json" --data '{"email":"assignment.1792868112674@example.com","password":"Fictional-Demo-2026!"}'
+curl -X POST "https://stayhealthy-fatma-project.faatum7.chatgpt.site/api/auth/login" -H "Content-Type: application/json" --data '{"email":"assignment.1792869281137@example.com","password":"Fictional-Demo-2026!"}'
 
 HTTP 200
-{"message":"Logged in successfully.","user":{"id":"d1fc9d00-7ebf-4ad8-84a1-12b0293e6552","name":"Amina Demo","email":"assignment.1792868112674@example.com","phone":"+252610000000","role":"Patient"}}
+{"message":"Logged in successfully.","user":{"id":"29da393a-e0bb-458f-ac19-e0a978997d07","name":"Amina Demo","email":"assignment.1792869281137@example.com","phone":"+252610000000","role":"Patient"}}
 
 The HttpOnly session cookie was received and used for further tests; its token is omitted from this evidence.
 
