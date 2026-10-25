@@ -1,6 +1,6 @@
 REAL DEMO API - actual cURL execution
 
-curl -X POST "http://127.0.0.1:5188/api/auth/register" -H "Content-Type: application/json" --data '{"role":"Patient","name":"Amina Demo","email":"assignment.1792916461137@example.com","phone":"+252610000000","password":"Fictional-Demo-2026!"}'
+curl -X POST "https://stayhealthy-fatma-project.faatum7.chatgpt.site/api/auth/register" -H "Content-Type: application/json" --data '{"role":"Patient","name":"Amina Demo","email":"assignment.1792917184009@example.com","phone":"+252610000000","password":"Fictional-Demo-2026!"}'
 
 HTTP 201
-{"message":"Account created. You can now log in.","user":{"id":"75cc0501-91d9-40b1-a59a-0a294a3c8e7f","name":"Amina Demo","email":"assignment.1792916461137@example.com","phone":"+252610000000","role":"Patient"}}
+{"message":"Account created. You can now log in.","user":{"id":"a84a8386-474b-4a86-8cae-534a0734495b","name":"Amina Demo","email":"assignment.1792917184009@example.com","phone":"+252610000000","role":"Patient"}}

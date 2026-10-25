@@ -87,7 +87,7 @@ The included backend is a purpose-built demo because no course API was supplied.
 | GET / POST / PATCH | /api/appointments | List / create / cancel own appointments |
 | GET / POST | /api/reviews | List / submit own reviews |
 
-POST/PATCH require application/json. Foreign Origin requests are rejected. User IDs are resolved from the session, not trusted from request bodies. Password hashes, salts and session tokens are omitted from response bodies.
+POST/PATCH require application/json. Foreign Origin requests are rejected. User IDs are resolved from the session, not trusted from request bodies. Password hashes and salts are omitted from response bodies. Successful login returns the newly issued authtoken; logout revokes it. Published test tokens have already been revoked.
 
 This course demo is not a production health-record system: it does not implement password recovery, email verification, abuse controls, clinical operations or healthcare compliance.
 

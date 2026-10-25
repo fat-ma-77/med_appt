@@ -153,10 +153,10 @@ d---- build
 ```text
 REAL DEMO API - actual cURL execution
 
-curl -X POST "http://127.0.0.1:5188/api/auth/register" -H "Content-Type: application/json" --data '{"role":"Patient","name":"Amina Demo","email":"assignment.1792916461137@example.com","phone":"+252610000000","password":"Fictional-Demo-2026!"}'
+curl -X POST "https://stayhealthy-fatma-project.faatum7.chatgpt.site/api/auth/register" -H "Content-Type: application/json" --data '{"role":"Patient","name":"Amina Demo","email":"assignment.1792917184009@example.com","phone":"+252610000000","password":"Fictional-Demo-2026!"}'
 
 HTTP 201
-{"message":"Account created. You can now log in.","user":{"id":"75cc0501-91d9-40b1-a59a-0a294a3c8e7f","name":"Amina Demo","email":"assignment.1792916461137@example.com","phone":"+252610000000","role":"Patient"}}
+{"message":"Account created. You can now log in.","user":{"id":"a84a8386-474b-4a86-8cae-534a0734495b","name":"Amina Demo","email":"assignment.1792917184009@example.com","phone":"+252610000000","role":"Patient"}}
 
 ```
 
@@ -165,10 +165,10 @@ HTTP 201
 ```text
 REAL DEMO API - actual cURL execution
 
-curl -X POST "http://127.0.0.1:5188/api/auth/login" -H "Content-Type: application/json" --data '{"email":"assignment.1792916461137@example.com","password":"Fictional-Demo-2026!"}'
+curl -X POST "https://stayhealthy-fatma-project.faatum7.chatgpt.site/api/auth/login" -H "Content-Type: application/json" --data '{"email":"assignment.1792917184009@example.com","password":"Fictional-Demo-2026!"}'
 
 HTTP 200
-{"message":"Logged in successfully.","authtoken":"396d04df7628b22a7c56e75df76fb5137df4a00dcaa990c4b39e17d4f2ec6aac","user":{"id":"75cc0501-91d9-40b1-a59a-0a294a3c8e7f","name":"Amina Demo","email":"assignment.1792916461137@example.com","phone":"+252610000000","role":"Patient"}}
+{"message":"Logged in successfully.","authtoken":"5833d4614b4d1a8bfa55702fd67963b55a1afb5afa5b57897a6a1a52333dbb3c","user":{"id":"a84a8386-474b-4a86-8cae-534a0734495b","name":"Amina Demo","email":"assignment.1792917184009@example.com","phone":"+252610000000","role":"Patient"}}
 
 The returned authtoken was verified and revoked by logout after testing. It belongs only to this fictional demo account.
 

@@ -30,9 +30,24 @@
     "sha256": "2dba568e589d12f68364cff97c86d7bd123b5670be61856cb2eb1195d1497a78"
   },
   {
+    "file": "react_navbar_folder_struct.png",
+    "source": "outputs/resubmit/navbar-source.png",
+    "sha256": "cc9dad360c280b765a5eba1a6f28921d29a34c286a3d6e3f5ed327c745e3339d"
+  },
+  {
     "file": "react_navbar_output.png",
     "source": "screenshots/navbar_design.png",
     "sha256": "437aa5a1ef9afdb3eb290b059c6e614b20c54e436563c85bcb28969016e07dda"
+  },
+  {
+    "file": "react_signup_folder_struct.png",
+    "source": "outputs/resubmit/signup-source.png",
+    "sha256": "223d410bdc4c2ecc0dc5fd476e1034ec3ba143f71161f7aa0ed2ce60aa32c8ba"
+  },
+  {
+    "file": "react_login_folder_struct.png",
+    "source": "outputs/resubmit/login-source.png",
+    "sha256": "d1f1ffb63a93bd5ba4108d6806c8921cdb9da59cbaab69c0d5d05e5d2f438852"
   },
   {
     "file": "react_signup_output.png",
@@ -118,6 +133,11 @@
     "file": "report.png",
     "source": "output/pdf/patient_report-preview.png",
     "sha256": "2f2fcbd52fb03723b58752de29febe08021783e573f33f0a741f3515ebc00ee7"
+  },
+  {
+    "file": "style.png",
+    "source": "outputs/resubmit/styles-source.png",
+    "sha256": "171eab5c10ff3a0ee71fee1cfdafe6b14cd4ac364e2610b1324e0d1f367daa4b"
   },
   {
     "file": "test_profile.png",
