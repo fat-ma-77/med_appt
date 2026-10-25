@@ -18,7 +18,8 @@ async function handle(request: Request) {
             const salt = hex(crypto.getRandomValues(new Uint8Array(16)));
             const u = { id: crypto.randomUUID(), name: d.name.trim(), email, phone: d.phone.trim(), role: d.role, passwordHash: await hashPassword(d.password, salt), salt, createdAt: Date.now() };
             await db.insert(users).values(u);
-            return json({ message: 'Account created. You can now log in.', user: publicUser(u) }, 201);
+            const session = await createSession(u.id, request);
+            return json({ message: 'Account created. You can now log in.', authtoken: session.authtoken, user: publicUser(u) }, 201);
         }
         if (path === '/api/auth/login' && method === 'POST') {
             const d = await body(request);

@@ -1,8 +1,10 @@
-# StayHealthy - Course Final Project
+# Medical Appointment Booking
 
 This repository retains the official IBM course starter. The completed StayHealthy React application is maintained in [fat-ma-77/med_appt](https://github.com/fat-ma-77/med_appt).
 
 ## Project name and purpose
+
+**Project name: Medical Appointment Booking**
 
 StayHealthy is a fictional nonprofit healthcare platform for finding doctors, booking and cancelling appointments, reviewing doctors, editing patient profiles, and downloading a sample report. All clinicians and patient details are fictional.
 

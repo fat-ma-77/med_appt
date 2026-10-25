@@ -1,6 +1,7 @@
 import {execFileSync} from 'node:child_process';
 import {writeFileSync,mkdirSync} from 'node:fs';
 import assert from 'node:assert/strict';
+const evidenceDir='outputs/api-evidence-round3';
 const base=process.env.TEST_BASE_URL||'http://127.0.0.1:5188';
 const email='assignment.'+Date.now()+'@example.com';
 const password='Fictional-Demo-2026!';
@@ -18,17 +19,20 @@ function call(method,path,data,authenticated=true,bearer){
  return {status,data:JSON.parse(text),text,head,setCookie};
 }
 function check(name,condition){assert.ok(condition,name);results.push('PASS '+name);checks++;}
-mkdirSync('evidence',{recursive:true});
+mkdirSync(evidenceDir,{recursive:true});
 const payload={role:'Patient',name:'Amina Demo',email,phone:'+252610000000',password};
 const register=call('POST','/api/auth/register',payload,false);
-writeFileSync('evidence/register.txt',`REAL DEMO API - actual cURL execution\n\ncurl -X POST "${base}/api/auth/register" -H "Content-Type: application/json" --data '${JSON.stringify(payload)}'\n\nHTTP ${register.status}\n${register.text}\n`);
+writeFileSync(evidenceDir+'/register.txt',`REAL DEMO API - actual cURL execution\n\ncurl -X POST "${base}/api/auth/register" -H "Content-Type: application/json" --data '${JSON.stringify(payload)}'\n\nHTTP ${register.status}\n${register.text}\n`);
 check('registration returns 201',register.status===201);
+check('registration returns a real authtoken',/^[a-f0-9]{64}$/.test(register.data.authtoken));
+check('registration token authenticates requests',call('GET','/api/profile',undefined,false,register.data.authtoken).data.user.email===email);
+check('registration token is revoked',call('POST','/api/auth/logout',{},false,register.data.authtoken).status===200 && call('GET','/api/appointments',undefined,false,register.data.authtoken).status===401);
 check('registration never returns password hash or salt',!('passwordHash' in register.data.user)&&!('salt' in register.data.user));
 check('duplicate email is rejected',call('POST','/api/auth/register',payload,false).status===409);
 check('invalid registration is rejected',call('POST','/api/auth/register',{...payload,email:'bad',phone:'x'},false).status===400);
 check('wrong password is rejected',call('POST','/api/auth/login',{email,password:'wrong'},false).status===401);
 const login=call('POST','/api/auth/login',{email,password},false);cookie=login.setCookie;
-writeFileSync('evidence/login.txt',`REAL DEMO API - actual cURL execution\n\ncurl -X POST "${base}/api/auth/login" -H "Content-Type: application/json" --data '${JSON.stringify({email,password})}'\n\nHTTP ${login.status}\n${login.text}\n\nThe returned authtoken was verified and revoked by logout after testing. It belongs only to this fictional demo account.\n`);
+writeFileSync(evidenceDir+'/login.txt',`REAL DEMO API - actual cURL execution\n\ncurl -X POST "${base}/api/auth/login" -H "Content-Type: application/json" --data '${JSON.stringify({email,password})}'\n\nHTTP ${login.status}\n${login.text}\n\nThe returned authtoken was verified and revoked by logout after testing. It belongs only to this fictional demo account.\n`);
 check('login returns a real authtoken',typeof login.data.authtoken==='string'&&/^[a-f0-9]{64}$/.test(login.data.authtoken));
 check('login returns 200 and an HttpOnly session cookie',login.status===200&&!!cookie&&/HttpOnly/i.test(login.head));
 check('returned authtoken authenticates Bearer requests',call('GET','/api/profile',undefined,false,login.data.authtoken).data.user.email===email);
@@ -53,4 +57,4 @@ check('cancelled status persists',call('GET','/api/appointments').data.appointme
 check('logout succeeds',call('POST','/api/auth/logout',{}).status===200);
 check('old cookie is invalid after logout',call('GET','/api/appointments').status===401);
 check('returned authtoken is revoked after logout',call('GET','/api/appointments',undefined,false,login.data.authtoken).status===401);
-writeFileSync('evidence/api-tests.txt',results.join('\n')+`\n\n${checks} checks passed.\n`);console.log(results.join('\n'));console.log(`\n${checks} checks passed.`);
+writeFileSync(evidenceDir+'/api-tests.txt',results.join('\n')+`\n\n${checks} checks passed.\n`);console.log(results.join('\n'));console.log(`\n${checks} checks passed.`);
