@@ -1,0 +1,5 @@
+Question 4 public HTTP 200: https://github.com/fat-ma-77/grihf-frontend_capstone_starter_code/blob/main/README.md
+Question 5 public HTTP 200: https://github.com/fat-ma-77/med_appt/blob/main/components/Sign_Up.jsx?plain=1
+Question 7 public HTTP 200: https://github.com/fat-ma-77/med_appt/blob/main/components/Navbar.jsx?plain=1
+Question 9 public HTTP 200: https://github.com/fat-ma-77/med_appt/blob/main/app/App.jsx?plain=1
+Question 14 public HTTP 200: https://github.com/fat-ma-77/med_appt/blob/main/index.html?plain=1
