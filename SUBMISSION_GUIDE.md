@@ -1,3 +1,5 @@
+> SUPERSEDED BY GRADING FEEDBACK: use resubmission/CORRECTED_ANSWERS.md for the next attempt.
+
 # StayHealthy submission checklist
 
 Project title: **StayHealthy: Accessible Healthcare Booking with React**

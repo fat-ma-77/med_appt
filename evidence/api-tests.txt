@@ -3,7 +3,9 @@ PASS registration never returns password hash or salt
 PASS duplicate email is rejected
 PASS invalid registration is rejected
 PASS wrong password is rejected
+PASS login returns a real authtoken
 PASS login returns 200 and an HttpOnly session cookie
+PASS returned authtoken authenticates Bearer requests
 PASS anonymous appointment access is rejected
 PASS authenticated profile contains correct identity
 PASS profile edit persists
@@ -13,11 +15,13 @@ PASS past appointment date is rejected
 PASS instant booking with only name and phone succeeds
 PASS review is saved
 PASS duplicate review is rejected server-side
+PASS review Name is persisted
 PASS saved review survives another request
 PASS review without appointment is rejected
 PASS cancellation succeeds
 PASS cancelled status persists
 PASS logout succeeds
 PASS old cookie is invalid after logout
+PASS returned authtoken is revoked after logout
 
-21 checks passed.
+25 checks passed.

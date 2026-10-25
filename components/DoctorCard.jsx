@@ -1,13 +1,14 @@
 'use client';
 import { useState } from 'react';
 import { ArrowUpRight, Languages, CalendarDays } from 'lucide-react';
-export default function DoctorCard({ doctor, onBook, appointment, onCancelled, notify }) {
+export default function DoctorCard({ doctor, onBook, appointment, setAppointments, onCancelled, notify }) {
     const [busy, setBusy] = useState(false), [confirm, setConfirm] = useState(false);
     async function cancelAppointment() { setBusy(true); try {
         const response = await fetch('/api/appointments', { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: appointment.id }) });
         const result = await response.json();
         if (!response.ok)
             throw new Error(result.error);
+        setAppointments(current => current.filter(item => item.id !== appointment.id));
         notify('Appointment cancelled.');
         await onCancelled();
     }

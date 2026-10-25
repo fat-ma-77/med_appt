@@ -5,10 +5,11 @@ const base=process.env.TEST_BASE_URL||'http://127.0.0.1:5188';
 const email='assignment.'+Date.now()+'@example.com';
 const password='Fictional-Demo-2026!';
 let cookie='';let checks=0;const results=[];
-function call(method,path,data,authenticated=true){
+function call(method,path,data,authenticated=true,bearer){
  const args=['-sS','-i','-X',method,base+path];
  if(data!==undefined)args.push('-H','Content-Type: application/json','--data-binary','@-');
- if(authenticated&&cookie)args.push('-H','Cookie: '+cookie);
+ if(bearer)args.push('-H','Authorization: Bearer '+bearer);
+ else if(authenticated&&cookie)args.push('-H','Cookie: '+cookie);
  const raw=execFileSync('curl.exe',args,{input:data===undefined?undefined:JSON.stringify(data),encoding:'utf8'});
  const split=raw.indexOf('\r\n\r\n');const boundary=split<0?raw.indexOf('\n\n'):split;
  const head=raw.slice(0,boundary),text=raw.slice(boundary+(split<0?2:4));
@@ -27,8 +28,10 @@ check('duplicate email is rejected',call('POST','/api/auth/register',payload,fal
 check('invalid registration is rejected',call('POST','/api/auth/register',{...payload,email:'bad',phone:'x'},false).status===400);
 check('wrong password is rejected',call('POST','/api/auth/login',{email,password:'wrong'},false).status===401);
 const login=call('POST','/api/auth/login',{email,password},false);cookie=login.setCookie;
-writeFileSync('evidence/login.txt',`REAL DEMO API - actual cURL execution\n\ncurl -X POST "${base}/api/auth/login" -H "Content-Type: application/json" --data '${JSON.stringify({email,password})}'\n\nHTTP ${login.status}\n${login.text}\n\nThe HttpOnly session cookie was received and used for further tests; its token is omitted from this evidence.\n`);
+writeFileSync('evidence/login.txt',`REAL DEMO API - actual cURL execution\n\ncurl -X POST "${base}/api/auth/login" -H "Content-Type: application/json" --data '${JSON.stringify({email,password})}'\n\nHTTP ${login.status}\n${login.text}\n\nThe returned authtoken was verified and revoked by logout after testing. It belongs only to this fictional demo account.\n`);
+check('login returns a real authtoken',typeof login.data.authtoken==='string'&&/^[a-f0-9]{64}$/.test(login.data.authtoken));
 check('login returns 200 and an HttpOnly session cookie',login.status===200&&!!cookie&&/HttpOnly/i.test(login.head));
+check('returned authtoken authenticates Bearer requests',call('GET','/api/profile',undefined,false,login.data.authtoken).data.user.email===email);
 check('anonymous appointment access is rejected',call('GET','/api/appointments',undefined,false).status===401);
 check('authenticated profile contains correct identity',call('GET','/api/profile').data.user.email===email);
 check('profile edit persists',call('PATCH','/api/profile',{name:'Amina Demo Updated',phone:'+252610000001'}).data.user.name==='Amina Demo Updated'&&call('GET','/api/profile').data.user.phone==='+252610000001');
@@ -39,13 +42,15 @@ check('scheduled booking succeeds',a.status===201&&a.data.appointment.date===dat
 check('conflicting slot is rejected',call('POST','/api/appointments',booking).status===409);
 check('past appointment date is rejected',call('POST','/api/appointments',{...booking,date:'2000-01-01'}).status===400);
 check('instant booking with only name and phone succeeds',call('POST','/api/appointments',{doctorId:'maya',type:'instant',name:'Amina Demo',phone:'+252610000000'}).status===201);
-const review={doctorId:'sara',rating:5,comment:'A clear and welcoming demo booking experience.'};
+const review={name:'Amina Demo',doctorId:'sara',rating:5,comment:'A clear and welcoming demo booking experience.'};
 check('review is saved',call('POST','/api/reviews',review).status===201);
 check('duplicate review is rejected server-side',call('POST','/api/reviews',review).status===409);
+check('review Name is persisted',call('GET','/api/reviews').data.reviews.some(r=>r.name==='Amina Demo'));
 check('saved review survives another request',call('GET','/api/reviews').data.reviews.some(r=>r.doctorId==='sara'&&r.rating===5));
 check('review without appointment is rejected',call('POST','/api/reviews',{...review,doctorId:'omar'}).status===403);
 check('cancellation succeeds',call('PATCH','/api/appointments',{id:a.data.appointment.id}).status===200);
 check('cancelled status persists',call('GET','/api/appointments').data.appointments.find(x=>x.id===a.data.appointment.id).status==='cancelled');
 check('logout succeeds',call('POST','/api/auth/logout',{}).status===200);
 check('old cookie is invalid after logout',call('GET','/api/appointments').status===401);
+check('returned authtoken is revoked after logout',call('GET','/api/appointments',undefined,false,login.data.authtoken).status===401);
 writeFileSync('evidence/api-tests.txt',results.join('\n')+`\n\n${checks} checks passed.\n`);console.log(results.join('\n'));console.log(`\n${checks} checks passed.`);

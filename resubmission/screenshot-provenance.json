@@ -1,0 +1,137 @@
+[
+  {
+    "file": "appt_search_design.png",
+    "source": "screenshots/doctor-search.png",
+    "sha256": "5c5676bf1ec482388d8ad83208b224209c37dfcba03fcba58e89024895de7244"
+  },
+  {
+    "file": "appt_doccard_design.png",
+    "source": "screenshots/appointments.png",
+    "sha256": "801c9aef72778fda24d1eb9434fdeb5edff39b19e879ee97afcb726ea3fac9ae"
+  },
+  {
+    "file": "reviews_design.png",
+    "source": "outputs/resubmit/review-form.png",
+    "sha256": "ec85260c0a07b050b7594acedf0a70fa63f3f101958e939335102de61ded80f0"
+  },
+  {
+    "file": "navbar_layout.png",
+    "source": "screenshots/navbar_design.png",
+    "sha256": "437aa5a1ef9afdb3eb290b059c6e614b20c54e436563c85bcb28969016e07dda"
+  },
+  {
+    "file": "signup_form_layout.png",
+    "source": "screenshots/signup_form_design.png",
+    "sha256": "5b52ab8aed1b3596d587167d4c4d84d4ffa6a43ab34eab2fae077c9b313be239"
+  },
+  {
+    "file": "login_form_layout.png",
+    "source": "screenshots/login_form_design.png",
+    "sha256": "2dba568e589d12f68364cff97c86d7bd123b5670be61856cb2eb1195d1497a78"
+  },
+  {
+    "file": "react_navbar_output.png",
+    "source": "screenshots/navbar_design.png",
+    "sha256": "437aa5a1ef9afdb3eb290b059c6e614b20c54e436563c85bcb28969016e07dda"
+  },
+  {
+    "file": "react_signup_output.png",
+    "source": "screenshots/signup_form_design.png",
+    "sha256": "5b52ab8aed1b3596d587167d4c4d84d4ffa6a43ab34eab2fae077c9b313be239"
+  },
+  {
+    "file": "react_login_output.png",
+    "source": "screenshots/login_form_design.png",
+    "sha256": "2dba568e589d12f68364cff97c86d7bd123b5670be61856cb2eb1195d1497a78"
+  },
+  {
+    "file": "docsearch.png",
+    "source": "screenshots/doctor-search.png",
+    "sha256": "5c5676bf1ec482388d8ad83208b224209c37dfcba03fcba58e89024895de7244"
+  },
+  {
+    "file": "doctor_card.png",
+    "source": "screenshots/appointments.png",
+    "sha256": "801c9aef72778fda24d1eb9434fdeb5edff39b19e879ee97afcb726ea3fac9ae"
+  },
+  {
+    "file": "apptform.png",
+    "source": "screenshots/appointment-form.png",
+    "sha256": "0807045e0be41ecd046874c04a901a7b8729880446828bb7bca9d4ef14a4224a"
+  },
+  {
+    "file": "appttest.png",
+    "source": "screenshots/booking-notification.png",
+    "sha256": "4222993534948a7cb64f47a19eaf61d8695426f0d7cd1836a78afde52a7aa4a8"
+  },
+  {
+    "file": "notification_output.png",
+    "source": "screenshots/booking-notification.png",
+    "sha256": "4222993534948a7cb64f47a19eaf61d8695426f0d7cd1836a78afde52a7aa4a8"
+  },
+  {
+    "file": "notification_test.png",
+    "source": "outputs/resubmit/profile-saved.png",
+    "sha256": "2805b86009d50f3188c4c64727f2c2f873c15edc655e44f463209cf8a16dda27"
+  },
+  {
+    "file": "rating_selector.png",
+    "source": "outputs/resubmit/review-form.png",
+    "sha256": "ec85260c0a07b050b7594acedf0a70fa63f3f101958e939335102de61ded80f0"
+  },
+  {
+    "file": "review_form_style.png",
+    "source": "outputs/resubmit/review-form.png",
+    "sha256": "ec85260c0a07b050b7594acedf0a70fa63f3f101958e939335102de61ded80f0"
+  },
+  {
+    "file": "test_rev.png",
+    "source": "outputs/resubmit/review-submitted.png",
+    "sha256": "fbc0586af63ad1cf86cfde32cb9de440290ffcc4eddbd4106b3187e29cfd32ee"
+  },
+  {
+    "file": "profilecard.png",
+    "source": "screenshots/profile-card.png",
+    "sha256": "52011230db31a23441f0f11888f55909e572a66dbdd246d8d3d496a16cd8bae0"
+  },
+  {
+    "file": "integration.png",
+    "source": "outputs/resubmit/profile-saved.png",
+    "sha256": "2805b86009d50f3188c4c64727f2c2f873c15edc655e44f463209cf8a16dda27"
+  },
+  {
+    "file": "profileform.png",
+    "source": "screenshots/profile-edit.png",
+    "sha256": "3cc24adb93ecd5d789202984e9080004f324384e46817709772aacbd3131ca1a"
+  },
+  {
+    "file": "profile.png",
+    "source": "screenshots/profile-card.png",
+    "sha256": "52011230db31a23441f0f11888f55909e572a66dbdd246d8d3d496a16cd8bae0"
+  },
+  {
+    "file": "reportlayout.png",
+    "source": "outputs/resubmit/reports.png",
+    "sha256": "2811e9e96bed0449bf5797cd289591df09f111b6320c642a035424ab5adf18b8"
+  },
+  {
+    "file": "report.png",
+    "source": "output/pdf/patient_report-preview.png",
+    "sha256": "2f2fcbd52fb03723b58752de29febe08021783e573f33f0a741f3515ebc00ee7"
+  },
+  {
+    "file": "test_profile.png",
+    "source": "outputs/resubmit/profile-saved.png",
+    "sha256": "2805b86009d50f3188c4c64727f2c2f873c15edc655e44f463209cf8a16dda27"
+  },
+  {
+    "file": "test_success.png",
+    "source": "screenshots/registration-success.png",
+    "sha256": "14473e00598f9352e0b2200e255688e27dfb093be295ea420cbd1cb08e6493c8"
+  },
+  {
+    "file": "launch.png",
+    "source": "C:/Users/hp/Downloads/launch.png",
+    "sha256": "9b8a88e13038281ad8d59a6b97435ce6edee3fa7ef4681616102ac87eb815450"
+  }
+]

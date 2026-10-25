@@ -1,0 +1,90 @@
+
+> med_appt@0.1.0 build
+> node scripts/build-project.mjs
+
+
+  vinext build  (Vite 8.0.13)
+
+[PLUGIN_TIMINGS] Your build spent significant time in plugin `inject-file-scope-variables`. See https://rolldown.rs/options/checks#plugintimings for more details.
+
+[1/5] analyze client references...
+
+transforming...✓ 345 modules transformed.
+rendering chunks...
+[PLUGIN_TIMINGS] Your build spent significant time in plugins. Here is a breakdown:
+  - rsc:virtual-client-package (19%)
+  - vinext:css-data-url (17%)
+  - rsc:scan-strip (13%)
+  - alias (11%)
+  - rsc:rsc-css-export-transform (7%)
+See https://rolldown.rs/options/checks#plugintimings for more details.
+
+✓ built in 16.70s
+[2/5] analyze server references...
+
+transforming...✓ 126 modules transformed.
+rendering chunks...
+✓ built in 11.48s
+[3/5] build rsc environment...
+
+transforming...✓ 342 modules transformed.
+rendering chunks...
+computing gzip size...
+[PLUGIN_TIMINGS] Your build spent significant time in plugins. Here is a breakdown:
+  - alias (23%)
+  - rsc:virtual-client-package (20%)
+  - vinext:og-inline-fetch-assets (9%)
+  - vinext:css-data-url (8%)
+  - rsc:use-server (5%)
+See https://rolldown.rs/options/checks#plugintimings for more details.
+
+✓ built in 18.90s
+[4/5] build client environment...
+
+transforming...✓ 1915 modules transformed.
+rendering chunks...
+computing gzip size...
+✓ built in 35.35s
+[5/5] build ssr environment...
+
+transforming...✓ 132 modules transformed.
+rendering chunks...
+computing gzip size...
+[PLUGIN_TIMINGS] Your build spent significant time in plugins. Here is a breakdown:
+  - vinext:og-inline-fetch-assets (22%)
+  - rsc:rsc-css-export-transform (11%)
+  - rsc:scan-strip (8%)
+  - vinext:rsc-client-reference-loaders (7%)
+  - rsc:load-environment-module (6%)
+See https://rolldown.rs/options/checks#plugintimings for more details.
+
+✓ built in 12.14s
+
+  Route (app)
+  ┌ ? /              
+  ├ ƒ /:view         
+  └ λ /api/:segments+
+
+  λ API  ƒ Dynamic  ? Unknown
+
+  ? Some routes could not be classified. vinext currently uses static analysis
+    and cannot detect dynamic API usage (headers(), cookies(), etc.) at build time.
+    Automatic classification will be improved in a future release.
+  Build complete. Run `vinext start` to start the production server.
+
+
+Production deployment bundle copied to server/build.
+
+Contents of server/:
+  build/
+
+Contents of server/build/:
+  .openai/
+  client/
+  server/
+
+Mode  Name
+----  ----
+d---- build
+
+

@@ -1,15 +1,16 @@
 'use client';
 import { useState } from 'react';
 import { timeSlots } from '../lib/doctors';
-export default function AppointmentForm({ doctor, user, onBooked, notify }) {
+export default function AppointmentForm({ doctor, user, onSubmit, notify }) {
     const [busy, setBusy] = useState(false), [error, setError] = useState('');
     async function submit(event) { event.preventDefault(); setBusy(true); setError(''); const f = new FormData(event.currentTarget); try {
-        const response = await fetch('/api/appointments', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ doctorId: doctor.id, type: 'scheduled', name: f.get('name'), phone: f.get('phone'), date: f.get('date'), time: f.get('time') }) });
+        const values = { doctorId: doctor.id, type: 'scheduled', name: f.get('name'), phone: f.get('phone'), date: f.get('date'), time: f.get('time') };
+        const response = await fetch('/api/appointments', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(values) });
         const result = await response.json();
         if (!response.ok)
             throw new Error(result.error);
         notify('Appointment booked with ' + doctor.name + '.');
-        await onBooked();
+        await onSubmit(values);
     }
     catch (e) {
         setError(e.message);

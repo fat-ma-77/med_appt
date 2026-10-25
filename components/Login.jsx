@@ -14,6 +14,9 @@ export default function Login({ onLogin, notify }) {
             const result = await response.json();
             if (!response.ok)
                 throw new Error(result.error);
+            // The API also returns authtoken for cURL/Bearer clients. The browser
+            // keeps using its HttpOnly session cookie rather than storing that token.
+            sessionStorage.setItem('stayhealthy_user', JSON.stringify(result.user));
             onLogin(result.user);
             notify('Welcome back, ' + result.user.name.split(' ')[0] + '.');
             window.location.assign('/appointments');

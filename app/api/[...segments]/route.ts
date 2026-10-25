@@ -1,7 +1,7 @@
 import { getDb } from '../../../db';
 import { users, sessions, appointments, reviews } from '../../../db/schema';
 import { eq, and } from 'drizzle-orm';
-import { body, json, hashPassword, hex, hashToken, publicUser, currentUser, createSession, cookieToken, validName, validPhone } from '../../../lib/auth';
+import { body, json, hashPassword, hex, hashToken, publicUser, currentUser, createSession, requestToken, validName, validPhone } from '../../../lib/auth';
 import { doctors, timeSlots } from '../../../lib/doctors';
 async function handle(request: Request) {
     const path = new URL(request.url).pathname;
@@ -32,11 +32,12 @@ async function handle(request: Request) {
                 diff |= candidate.charCodeAt(i) ^ expected.charCodeAt(i);
             if (!u || diff)
                 return json({ error: 'Invalid email or password.' }, 401);
-            return json({ message: 'Logged in successfully.', user: publicUser(u) }, 200, { 'Set-Cookie': await createSession(u.id, request) });
+            const session = await createSession(u.id, request);
+            return json({ message: 'Logged in successfully.', authtoken: session.authtoken, user: publicUser(u) }, 200, { 'Set-Cookie': session.cookie });
         }
         if (path === '/api/auth/logout' && method === 'POST') {
             await body(request);
-            const t = cookieToken(request);
+            const t = requestToken(request);
             if (t)
                 await db.delete(sessions).where(eq(sessions.tokenHash, await hashToken(t)));
             return json({ message: 'Logged out.' }, 200, { 'Set-Cookie': 'stayhealthy_session=; HttpOnly; SameSite=Lax; Path=/; Max-Age=0' });
@@ -79,11 +80,11 @@ async function handle(request: Request) {
             return json({ reviews: await db.select().from(reviews).where(eq(reviews.userId, u.id)) });
         if (path === '/api/reviews' && method === 'POST') {
             const d = await body(request);
-            if (!doctors.some(x => x.id === d.doctorId) || !Number.isInteger(d.rating) || d.rating < 1 || d.rating > 5 || typeof d.comment !== 'string' || d.comment.trim().length < 5 || d.comment.length > 1000)
+            if (!validName(d.name) || !doctors.some(x => x.id === d.doctorId) || !Number.isInteger(d.rating) || d.rating < 1 || d.rating > 5 || typeof d.comment !== 'string' || d.comment.trim().length < 5 || d.comment.length > 1000)
                 return json({ error: 'Select a doctor, a rating of 1–5, and a review of 5–1000 characters.' }, 400);
             if (!(await db.select().from(appointments).where(and(eq(appointments.userId, u.id), eq(appointments.doctorId, d.doctorId), eq(appointments.status, 'booked'))).limit(1)).length)
                 return json({ error: 'Book a demo appointment with this doctor before reviewing.' }, 403);
-            const review = { id: crypto.randomUUID(), userId: u.id, doctorId: d.doctorId, rating: d.rating, comment: d.comment.trim(), createdAt: Date.now() };
+            const review = { id: crypto.randomUUID(), userId: u.id, doctorId: d.doctorId, name: d.name.trim(), rating: d.rating, comment: d.comment.trim(), createdAt: Date.now() };
             await db.insert(reviews).values(review);
             return json({ message: 'Review saved. Thank you.', review }, 201);
         }

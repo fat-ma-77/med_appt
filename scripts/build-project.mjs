@@ -1,0 +1,17 @@
+import {spawnSync} from 'node:child_process';
+import {cpSync,existsSync,mkdirSync,readdirSync,rmSync} from 'node:fs';
+import path from 'node:path';
+const result=spawnSync(process.execPath,['scripts/run-framework.mjs','build'],{stdio:'inherit'});
+if(result.error)throw result.error;
+if(result.status!==0)process.exit(result.status||1);
+const root=process.cwd();
+const target=path.resolve(root,'server','build');
+if(!target.startsWith(root+path.sep)||path.dirname(target)!==path.resolve(root,'server'))throw new Error('Unexpected build destination.');
+mkdirSync(path.dirname(target),{recursive:true});
+if(existsSync(target))rmSync(target,{recursive:true,force:true});
+cpSync(path.resolve(root,'dist'),target,{recursive:true});
+console.log('\nProduction deployment bundle copied to server/build.');
+console.log('\nContents of server/:');
+for(const entry of readdirSync(path.dirname(target),{withFileTypes:true}))console.log('  '+entry.name+(entry.isDirectory()?'/':''));
+console.log('\nContents of server/build/:');
+for(const entry of readdirSync(target,{withFileTypes:true}))console.log('  '+entry.name+(entry.isDirectory()?'/':''));

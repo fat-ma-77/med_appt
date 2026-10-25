@@ -6,12 +6,12 @@ Educational demonstration only. No real doctors, consultations, prescriptions or
 
 ## Project links
 
-- Public source: https://github.com/fat-ma-77/stayhealthy-final-project
+- Public source: https://github.com/fat-ma-77/med_appt
 - Hosted preview: https://stayhealthy-fatma-project.faatum7.chatgpt.site (public; deployment and API verification recorded in evidence).
 
 ## Technology
 
-React 19, HTML/CSS, Lucide icons, Vinext routing/build on Vite, Cloudflare Worker API, SQLite/D1 persistence with Drizzle. Passwords use PBKDF2 with unique salts; session tokens are hashed and delivered in HttpOnly cookies.
+React 19, HTML/CSS, Lucide icons, Vinext routing/build on Vite, Cloudflare Worker API, SQLite/D1 persistence with Drizzle. Passwords use PBKDF2 with unique salts; session tokens are hashed. Login returns an authtoken for API clients and an HttpOnly cookie for browser sessions. The returned token is revoked by logout.
 
 ## Setup
 
@@ -26,6 +26,7 @@ Initialize the local demo database **once** after the first build:
 
 ```bash
 node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1 execute DB --local --config dist/server/wrangler.json --persist-to .wrangler/state --file drizzle/0000_bouncy_bloodaxe.sql
+node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1 execute DB --local --config dist/server/wrangler.json --persist-to .wrangler/state --file drizzle/0001_nervous_pet_avengers.sql
 ```
 
 Start the built app:
@@ -99,6 +100,8 @@ node scripts/test-api.mjs
 node node_modules/typescript/bin/tsc --noEmit --incremental false
 ```
 
+The production build also writes a complete deployment bundle to server/build, as required by the course rubric.
+
 The API script executes real cURL requests against the local app, uses invented example.com identities, and saves command output. It currently invokes curl.exe on Windows; replace that name with curl on macOS/Linux.
 
 - evidence/build.txt: production build output.
@@ -110,3 +113,7 @@ The API script executes real cURL requests against the local app, uses invented 
 - SUBMISSION_GUIDE.md: mapping for all 21 tasks and remaining submission actions.
 
 The SVGs are prepared for Figma import; Figma editing is not claimed as completed. App captures do not contain browser chrome. For launch.png, capture the deployed homepage with its actual browser address bar. For Task 21, take a Windows File Explorer screenshot of the completed screenshots folder.
+
+## Corrected course submission
+
+Use resubmission/CORRECTED_ANSWERS.md after the feedback. Question 4 requires [the course-starter README](https://github.com/fat-ma-77/grihf-frontend_capstone_starter_code/blob/main/README.md); the component and SEO links use this med_appt repository. The exact 31 image names are listed in resubmission/required-screenshots.txt.
