@@ -1,0 +1,92 @@
+[
+  {
+    "file": "navbar_design.png",
+    "source": "screenshots/navbar_design.png",
+    "sha256": "437aa5a1ef9afdb3eb290b059c6e614b20c54e436563c85bcb28969016e07dda",
+    "note": "Existing genuine app/source screenshot reused under the assignment-required filename."
+  },
+  {
+    "file": "signup_form_design.png",
+    "source": "screenshots/signup_form_design.png",
+    "sha256": "5b52ab8aed1b3596d587167d4c4d84d4ffa6a43ab34eab2fae077c9b313be239",
+    "note": "Existing genuine app/source screenshot reused under the assignment-required filename."
+  },
+  {
+    "file": "login_form_design.png",
+    "source": "screenshots/login_form_design.png",
+    "sha256": "2dba568e589d12f68364cff97c86d7bd123b5670be61856cb2eb1195d1497a78",
+    "note": "Existing genuine app/source screenshot reused under the assignment-required filename."
+  },
+  {
+    "file": "readme.md_file.png",
+    "source": "outputs/module-assignment/readme.md_file.jpg",
+    "sha256": "002509b9ab88cca5d5d7dc4a07bddc9119f02debf38dd330dadfae498059b468",
+    "note": "Fresh capture of the public course README showing Medical Appointment Booking and setup instructions."
+  },
+  {
+    "file": "signup_validation.png",
+    "source": "outputs/module-assignment/signup_validation.jpg",
+    "sha256": "0c432d6da21eb63795104558ea8b3a62f9642a5f2777ccc9675376aefe47fc95",
+    "note": "Fresh live-site capture: valid demo field values with mismatched passwords produce the visible Passwords do not match validation error; no account is created."
+  },
+  {
+    "file": "login_validation.png",
+    "source": "outputs/module-assignment/login_validation.jpg",
+    "sha256": "a7f4ad500b2e184d76f72e708fa63fcd3890d9624039215bf8a3e0c9a6163ac2",
+    "note": "Fresh live-site capture: invalid demo credentials produce Invalid email or password."
+  },
+  {
+    "file": "logout_button.png",
+    "source": "outputs/resubmit/profile-saved.png",
+    "sha256": "2805b86009d50f3188c4c64727f2c2f873c15edc655e44f463209cf8a16dda27",
+    "note": "Existing genuine app/source screenshot reused under the assignment-required filename."
+  },
+  {
+    "file": "docsearch_output.png",
+    "source": "resubmission-round3/round3-search.png",
+    "sha256": "9f83f214c9738c176792b1f8b3530321c08fed189d56aebcfb0c266f5f49836c",
+    "note": "Existing genuine app/source screenshot reused under the assignment-required filename."
+  },
+  {
+    "file": "notification_integration.png",
+    "source": "screenshots/booking-notification.png",
+    "sha256": "4222993534948a7cb64f47a19eaf61d8695426f0d7cd1836a78afde52a7aa4a8",
+    "note": "Existing genuine app/source screenshot reused under the assignment-required filename."
+  },
+  {
+    "file": "instant_consultation.png",
+    "source": "screenshots/instant-consultation.png",
+    "sha256": "69276f76e3fa38c5b667c341691002b1b5f60347e0d71e07df06110b10076946",
+    "note": "Existing genuine app/source screenshot reused under the assignment-required filename."
+  },
+  {
+    "file": "disable_review-button.png",
+    "source": "resubmission-round3/round3-review.png",
+    "sha256": "e995c8a019c9ccc798c83505ee1ea7d25733e4addc088b74cb7b0a3fe4c6fe25",
+    "note": "Existing genuine app/source screenshot reused under the assignment-required filename."
+  },
+  {
+    "file": "review_form.png",
+    "source": "outputs/resubmit/review-form.png",
+    "sha256": "ec85260c0a07b050b7594acedf0a70fa63f3f101958e939335102de61ded80f0",
+    "note": "Existing genuine app/source screenshot reused under the assignment-required filename."
+  },
+  {
+    "file": "profilename_change.png",
+    "source": "outputs/resubmit/profile-saved.png",
+    "sha256": "2805b86009d50f3188c4c64727f2c2f873c15edc655e44f463209cf8a16dda27",
+    "note": "Existing genuine app/source screenshot reused under the assignment-required filename."
+  },
+  {
+    "file": "build.png",
+    "source": "outputs/module-assignment/build.jpg",
+    "sha256": "056295979e7705516938bcac5a7c3f02896d896ebee7947c76d742e3320bc7ad",
+    "note": "Fresh screenshot of the genuine saved production terminal output displayed as evidence/build.txt on GitHub. This is a saved log view, not a terminal-window screenshot."
+  },
+  {
+    "file": "seo.png",
+    "source": "resubmission-round3/round3-seo.png",
+    "sha256": "5581729b0c60acc7d43599a81fd6b3f5c79fb40c169e63652fee17add3ce86a6",
+    "note": "Existing genuine app/source screenshot reused under the assignment-required filename."
+  }
+]
