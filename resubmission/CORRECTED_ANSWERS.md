@@ -168,7 +168,7 @@ REAL DEMO API - actual cURL execution
 curl -X POST "https://stayhealthy-fatma-project.faatum7.chatgpt.site/api/auth/login" -H "Content-Type: application/json" --data '{"email":"assignment.1792917184009@example.com","password":"Fictional-Demo-2026!"}'
 
 HTTP 200
-{"message":"Logged in successfully.","authtoken":"5833d4614b4d1a8bfa55702fd67963b55a1afb5afa5b57897a6a1a52333dbb3c","user":{"id":"a84a8386-474b-4a86-8cae-534a0734495b","name":"Amina Demo","email":"assignment.1792917184009@example.com","phone":"+252610000000","role":"Patient"}}
+{"message":"Logged in successfully.","authtoken":"REDACTED_PUBLIC_COPY","user":{"id":"a84a8386-474b-4a86-8cae-534a0734495b","name":"Amina Demo","email":"assignment.1792917184009@example.com","phone":"+252610000000","role":"Patient"}}
 
 The returned authtoken was verified and revoked by logout after testing. It belongs only to this fictional demo account.
 
